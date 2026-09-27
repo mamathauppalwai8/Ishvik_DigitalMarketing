@@ -1,0 +1,86 @@
+/* ==========================================================================
+   ISHVIK DIGITAL MARKETING — responsive
+   Reveals the hamburger, stacks columns, switches pillars to accordion.
+   ========================================================================== */
+
+/* ---------- Tablet portrait / small laptop ---------- */
+@media (max-width:1080px){
+  .about-grid{ grid-template-columns:1fr; }
+  .about-concepts{ grid-template-columns:repeat(3,1fr); }
+  .measure-grid{ grid-template-columns:1fr 1fr; }
+  .blog-grid{ grid-template-columns:1fr 1fr; }
+  .pillar-body{ grid-template-columns:1fr; }
+  .why-grid{ grid-template-columns:1fr 1fr; }
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+}
+
+/* ---------- Below 1024: hamburger navigation ---------- */
+@media (max-width:1024px){
+  .nav-links{ display:none; }
+  .nav-cta{ display:none; }
+  .burger{ display:flex; }
+}
+
+/* ---------- Mobile main breakpoints ---------- */
+@media (max-width:860px){
+  .pillar-head{ grid-template-columns:auto 1fr auto; gap:16px; padding:24px 22px; }
+  .pillar-body{ padding:0 22px 26px; }
+  .client-grid{ grid-template-columns:1fr; }
+  .selected-work-row{ grid-template-columns:1fr; }
+  .contact-grid{ grid-template-columns:1fr; }
+  .contact-info{ grid-template-columns:1fr 1fr; }
+  .form-row{ grid-template-columns:1fr; }
+  .about-concepts{ grid-template-columns:1fr; max-width:420px; }
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+}
+
+/* ---------- Phone ---------- */
+@media (max-width:640px){
+  :root{ --nav-h:66px; }
+
+  .section-head{ margin-bottom:40px; }
+  .hero{ padding-top:calc(var(--nav-h) + 28px); padding-bottom:96px; }
+  .hero-ctas .btn{ width:100%; justify-content:center; }
+  .hero-meta{ font-size:.66rem; letter-spacing:.22em; }
+  .mouse-glow{ display:none; }
+
+  /* Pillars: pure accordion on phones — body hidden until header tapped */
+  .pillar-body{ display:none; }
+  .service-pillar.is-open .pillar-body{ display:grid; }
+  .pillar-head-txt h3{ font-size:1.12rem; }
+  .pillar-num{ font-size:2rem; }
+  .pillar-toggle{ width:34px; height:34px; }
+
+  .concept-card{ padding:22px 16px; }
+  .why-grid{ grid-template-columns:1fr; }
+  .media-strip{ grid-auto-columns:minmax(240px,84vw); }
+  .measure-grid{ grid-template-columns:1fr; }
+  .blog-grid{ grid-template-columns:1fr; }
+  .contact-info{ grid-template-columns:1fr; }
+  .contact-form{ padding:24px 20px; }
+  .client-card{ padding:24px 20px; }
+  .client-card-top{ gap:18px; }
+  .client-logo-slot{ width:150px; height:100px; }
+
+  .footer-grid{ grid-template-columns:1fr; gap:32px; }
+  .footer-bottom{ flex-direction:column; text-align:center; }
+  .dx-slide{ padding:30px 16px; min-height:300px; }
+  .dx-devices{ height:170px; transform:scale(.82); margin-bottom:6px; }
+  .dx-nav{ width:42px; height:42px; }
+
+  .scroll-cue{ bottom:20px; }
+  .toast{ width:88%; text-align:center; }
+}
+
+/* ---------- Small phones ---------- */
+@media (max-width:380px){
+  .pillar-head{ grid-template-columns:auto 1fr; }
+  .pillar-toggle{ grid-column:1 / -1; }
+  .hero-title{ font-size:2.1rem; }
+  .eyebrow{ letter-spacing:.24em; }
+}
+
+/* ---------- Reduced motion on mobile menus: keep usable ---------- */
+@media (pointer:coarse){
+  .mouse-glow{ display:none; }
+}

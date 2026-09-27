@@ -1,0 +1,111 @@
+/* ==========================================================================
+   ISHVIK DIGITAL MARKETING — animations
+   Scroll reveals, keyframes and delicate movement. Slow, elegant, gold-led.
+   ========================================================================== */
+
+/* ---------- Scroll reveal system ---------- */
+.reveal{
+  opacity:0; transform:translateY(30px);
+  transition:opacity .9s var(--ease), transform .9s var(--ease);
+  transition-delay:var(--reveal-delay,0s);
+  will-change:opacity,transform;
+}
+.reveal.in-view{ opacity:1; transform:none; }
+
+/* Staggered hero entrance */
+.hero-eyebrow{ --reveal-delay:.1s; }
+.hero-title{ --reveal-delay:.22s; }
+.hero-sub{ --reveal-delay:.34s; }
+.hero-ctas{ --reveal-delay:.46s; }
+.hero-meta{ --reveal-delay:.58s; }
+
+/* ---------- Preloader ---------- */
+@keyframes loaderLogo{
+  0%{ opacity:0; transform:scale(.94); filter:blur(6px); }
+  30%{ opacity:1; filter:blur(0); }
+  100%{ opacity:1; transform:scale(1); }
+}
+@keyframes loaderLine{
+  0%{ transform:scaleX(0); }
+  100%{ transform:scaleX(1); }
+}
+
+/* ---------- Hero / decorative ---------- */
+@keyframes drawWave{
+  0%{ stroke-dashoffset:1800; }
+  100%{ stroke-dashoffset:300; }
+}
+@keyframes scrollLine{
+  0%{ top:-100%; }
+  100%{ top:100%; }
+}
+@keyframes pathMove{
+  to{ stroke-dashoffset:-100; }
+}
+@keyframes ringIn{
+  0%,100%{ transform:scale(1); opacity:.55; }
+  50%{ transform:scale(1.06); opacity:1; }
+}
+@keyframes nodePulse{
+  0%,100%{ opacity:.55; }
+  50%{ opacity:1; }
+}
+@keyframes playPulse{
+  0%{ transform:scale(1); opacity:.9; }
+  100%{ transform:scale(1.9); opacity:0; }
+}
+@keyframes clipMove{
+  0%{ left:-100%; }
+  100%{ left:100%; }
+}
+@keyframes headMove{
+  0%{ left:0; }
+  100%{ left:calc(100% - 2px); }
+}
+@keyframes cursorPath{
+  0%{ transform:translate(8%,20%) }
+  18%{ transform:translate(78%,55%) }
+  38%{ transform:translate(42%,62%) }
+  60%{ transform:translate(70%,12%) }
+  80%{ transform:translate(14%,70%) }
+  100%{ transform:translate(8%,20%) }
+}
+@keyframes uiBtnPulse{
+  0%,100%{ box-shadow:0 0 12px rgba(212,167,44,.45); }
+  50%{ box-shadow:0 0 22px rgba(245,200,76,.85); }
+}
+@keyframes netDrift{
+  to{ stroke-dashoffset:-300; }
+}
+
+/* ---------- Dashboard / charts ---------- */
+@keyframes drawLine{
+  to{ stroke-dashoffset:0; }
+}
+@keyframes ptIn{
+  to{ opacity:1; }
+}
+@keyframes barUp{
+  from{ transform:scaleY(0); opacity:0; }
+  to{ transform:scaleY(1); opacity:1; }
+}
+
+/* ---------- Contact info float ---------- */
+@keyframes floatY{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-7px); }
+}
+
+/* ---------- Hero particles handled in canvas (animations.js) ---------- */
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+    scroll-behavior:auto !important;
+  }
+  .reveal{ opacity:1; transform:none; }
+  .preloader-line span{ animation:none; }
+}
